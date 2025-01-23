@@ -1,0 +1,63 @@
+User Management Commands
+
+Adding Users
+Sudo useradd  username
+
+Creates a new user account with default settings
+Sudo useradd -m username
+
+creates a new user with home directory (-m flag creates the home directory)
+sudo useradd -m -s /bin/bash username
+
+creates a new user with home directory and sets bash as default shell
+admin@localhost:/desktop$ sudo useradd user1
+[sudo] password for admin:
+
+Setting Passwords
+sudo passwd username
+
+changes the current user's passwd
+admin@localhost:/desktop$ sudo passwd user1
+new password:
+
+Additional User Management
+Sudo userdel username
+
+Deletes a user account
+Sudo userdel -r username
+
+deletes a user account and their home directory (-r flag removes home directory and mail spool)
+
+Important: Always use 'sudo' when executing these commands as they required administrative privileges
+
+admin@localhost:/home$ ls
+john user1
+
+admin@localhost:/home$ sudo userdel -r user1
+
+admin@localhost:/home$ ls 
+john
+
+viewing user information
+id username
+
+Displays user and group IDs for a specified user
+who
+
+shows who is logged into the system
+whoami
+
+displays the current user's username
+admin@localhost:/home$ id user1
+
+admin@localhost:/home$ who
+
+admin@localhost:/home$ whoaami
+
+
+Now to switch to the newly created user use the command:
+su username
+
+admin@localhost:$ su user1
+ 
+
